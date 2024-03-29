@@ -22,4 +22,8 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\RockPaperScissors.Application\RockPaperScissors.Application.csproj" />
+  </ItemGroup>
+
 </Project>
