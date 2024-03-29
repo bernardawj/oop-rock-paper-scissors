@@ -8,5 +8,5 @@ public class RoundResult
     public Choice Player1Choice { get; set; }
     public Choice Player2Choice { get; set; }
     public IPlayer? Winner { get; set; }
-    public bool IsDraw { get; set; }
+    public bool IsDraw => Player1Choice == Player2Choice;
 }

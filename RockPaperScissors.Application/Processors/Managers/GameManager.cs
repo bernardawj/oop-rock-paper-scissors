@@ -22,26 +22,28 @@ public class GameManager : IGameManager
             Player1Choice = _player1.Play(),
             Player2Choice = _player2.Play()
         };
+        
+        roundResult.Winner = VerifyWinner(roundResult.Player1Choice, roundResult.Player2Choice);
+        
+        return roundResult;
+    }
 
-        if (roundResult.Player1Choice == roundResult.Player2Choice)
+    public IPlayer? VerifyWinner(Choice player1Choice, Choice player2Choice)
+    {
+        if (player1Choice == player2Choice)
         {
-            roundResult.IsDraw = true;
-            return roundResult;
+            return null;
         }
-
-        IPlayer winner;
-        if (roundResult.Player1Choice == Choice.Rock && roundResult.Player2Choice == Choice.Scissors || 
-            roundResult.Player1Choice == Choice.Paper && roundResult.Player2Choice == Choice.Rock || 
-            roundResult.Player1Choice == Choice.Scissors && roundResult.Player2Choice == Choice.Paper)
+        
+        if (player1Choice == Choice.Rock && player2Choice == Choice.Scissors || 
+            player1Choice == Choice.Paper && player2Choice == Choice.Rock || 
+            player1Choice == Choice.Scissors && player2Choice == Choice.Paper)
         {
-            winner = _player1;
+            return _player1;
         }
         else
         {
-            winner = _player2;
+            return _player2;
         }
-
-        roundResult.Winner = winner;
-        return roundResult;
     }
 }
