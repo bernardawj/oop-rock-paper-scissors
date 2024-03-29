@@ -24,4 +24,9 @@ public class HumanPlayer : IPlayer
             _ => throw new NotImplementedException("Choice not yet implemented.")
         };
     }
+
+    public override string ToString()
+    {
+        return "Human Player";
+    }
 }

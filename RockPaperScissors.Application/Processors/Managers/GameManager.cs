@@ -29,7 +29,7 @@ public class GameManager : IGameManager
             return roundResult;
         }
 
-        IPlayer? winner = null;
+        IPlayer winner;
         if (roundResult.Player1Choice == Choice.Rock && roundResult.Player2Choice == Choice.Scissors || 
             roundResult.Player1Choice == Choice.Paper && roundResult.Player2Choice == Choice.Rock || 
             roundResult.Player1Choice == Choice.Scissors && roundResult.Player2Choice == Choice.Paper)

@@ -9,4 +9,9 @@ public class ComputerPlayer : IPlayer
     {
         return (Choice)RandomNumberGenerator.GetInt32(0, 3);
     }
+
+    public override string ToString()
+    {
+        return "CPU";
+    }
 }
