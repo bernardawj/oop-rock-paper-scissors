@@ -41,4 +41,22 @@ public class GameManagerTests
         Assert.Equal(result.Winner, player2);
         Assert.False(result.IsDraw);
     }
+    
+    [Theory]
+    [InlineData(Choice.Rock, Choice.Rock)]
+    [InlineData(Choice.Paper, Choice.Paper)]
+    [InlineData(Choice.Scissors, Choice.Scissors)]
+    public void Play_ShouldReturnDraw_WhenProvidedWithSameChoices(Choice player1Choice, Choice player2Choice)
+    {
+        var player1 = new FakePlayer(player1Choice);
+        var player2 = new FakePlayer(player2Choice);
+        var gameManager = new GameManager(player1, player2);
+
+        var result = gameManager.PlayRound();
+        
+        Assert.Equal(result.Player1Choice, player1Choice);
+        Assert.Equal(result.Player2Choice, player2Choice);
+        Assert.Null(result.Winner);
+        Assert.True(result.IsDraw);
+    }
 }
