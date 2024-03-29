@@ -16,7 +16,7 @@ public class HumanPlayer : IPlayer
     {
         var submittedChoice = _choiceSubmitter.SubmitChoice();
 
-        return submittedChoice switch
+        return submittedChoice.ToUpper() switch
         {
             "R" => Choice.Rock,
             "P" => Choice.Paper,

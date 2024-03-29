@@ -8,8 +8,11 @@ public class HumanPlayerTests
 {
     [Theory]
     [InlineData("R", Choice.Rock)]
+    [InlineData("r", Choice.Rock)]
     [InlineData("P", Choice.Paper)]
+    [InlineData("p", Choice.Paper)]
     [InlineData("S", Choice.Scissors)]
+    [InlineData("s", Choice.Scissors)]
     public void Play_ShouldReturnCorrectChoice_WhenEnteredWithValidValueAsChoice(string submittedChoice, Choice expectedChoice)
     {
         var humanPlayer = new HumanPlayer(new FakeChoiceSubmitter(submittedChoice));
