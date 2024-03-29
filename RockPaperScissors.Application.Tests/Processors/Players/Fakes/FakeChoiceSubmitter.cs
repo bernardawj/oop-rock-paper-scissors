@@ -1,6 +1,6 @@
 using RockPaperScissors.Application.Processors.Submitter;
 
-namespace RockPaperScissors.Application.Tests.Processors.Submitter;
+namespace RockPaperScissors.Application.Tests.Processors.Players.Fakes;
 
 public class FakeChoiceSubmitter : IChoiceSubmitter
 {

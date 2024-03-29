@@ -1,6 +1,6 @@
 using RockPaperScissors.Application.Enums.Game;
 using RockPaperScissors.Application.Processors.Players;
-using RockPaperScissors.Application.Tests.Processors.Submitter;
+using RockPaperScissors.Application.Tests.Processors.Players.Fakes;
 
 namespace RockPaperScissors.Application.Tests.Processors.Players;
 

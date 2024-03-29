@@ -1,5 +1,3 @@
-using RockPaperScissors.Application.Enums.Game;
-
 namespace RockPaperScissors.Application.Processors.Submitter;
 
 public class ChoiceSubmitter : IChoiceSubmitter
