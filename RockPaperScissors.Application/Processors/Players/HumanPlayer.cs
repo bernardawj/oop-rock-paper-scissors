@@ -1,4 +1,5 @@
 using RockPaperScissors.Application.Enums.Game;
+using RockPaperScissors.Application.Exceptions;
 using RockPaperScissors.Application.Processors.Submitter;
 
 namespace RockPaperScissors.Application.Processors.Players;
@@ -23,7 +24,7 @@ public class HumanPlayer : IPlayer
             "S" => Choice.Scissors,
             "L" => Choice.Lizard,
             "SP" => Choice.Spock,
-            _ => throw new NotImplementedException("Choice not yet implemented.")
+            _ => throw new InvalidInputException("No such selection.")
         };
     }
 
