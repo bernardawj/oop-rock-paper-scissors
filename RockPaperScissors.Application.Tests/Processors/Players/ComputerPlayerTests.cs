@@ -15,12 +15,17 @@ public class ComputerPlayerTests
             .SetupSequence(random => random.Next(0, Enum.GetValues(typeof(Choice)).Length))
             .Returns(0)
             .Returns(1)
-            .Returns(2);
+            .Returns(2)
+            .Returns(3)
+            .Returns(4)
+            .Returns(5);
         
         var computerPlayer = new ComputerPlayer(_randomMock.Object);
         
         Assert.Equal(Choice.Rock, computerPlayer.Play());
         Assert.Equal(Choice.Paper, computerPlayer.Play());
         Assert.Equal(Choice.Scissors, computerPlayer.Play());
+        Assert.Equal(Choice.Lizard, computerPlayer.Play());
+        Assert.Equal(Choice.Spock, computerPlayer.Play());
     }
 }
