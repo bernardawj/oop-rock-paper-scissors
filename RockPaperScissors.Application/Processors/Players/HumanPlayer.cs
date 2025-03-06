@@ -21,6 +21,8 @@ public class HumanPlayer : IPlayer
             "R" => Choice.Rock,
             "P" => Choice.Paper,
             "S" => Choice.Scissors,
+            "L" => Choice.Lizard,
+            "SP" => Choice.Spock,
             _ => throw new NotImplementedException("Choice not yet implemented.")
         };
     }
