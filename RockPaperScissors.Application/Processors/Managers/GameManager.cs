@@ -22,9 +22,9 @@ public class GameManager : IGameManager
             Player1Choice = _player1.Play(),
             Player2Choice = _player2.Play()
         };
-        
+
         roundResult.Winner = VerifyWinner(roundResult.Player1Choice, roundResult.Player2Choice);
-        
+
         return roundResult;
     }
 
@@ -34,10 +34,17 @@ public class GameManager : IGameManager
         {
             return null;
         }
-        
-        if (player1Choice == Choice.Rock && player2Choice == Choice.Scissors || 
-            player1Choice == Choice.Paper && player2Choice == Choice.Rock || 
-            player1Choice == Choice.Scissors && player2Choice == Choice.Paper)
+
+        if (player1Choice == Choice.Rock && player2Choice == Choice.Scissors ||
+            player1Choice == Choice.Rock && player2Choice == Choice.Lizard ||
+            player1Choice == Choice.Paper && player2Choice == Choice.Rock ||
+            player1Choice == Choice.Paper && player2Choice == Choice.Spock ||
+            player1Choice == Choice.Scissors && player2Choice == Choice.Paper ||
+            player1Choice == Choice.Scissors && player2Choice == Choice.Lizard ||
+            player1Choice == Choice.Lizard && player2Choice == Choice.Spock ||
+            player1Choice == Choice.Lizard && player2Choice == Choice.Paper ||
+            player1Choice == Choice.Spock && player2Choice == Choice.Scissors ||
+            player1Choice == Choice.Spock && player2Choice == Choice.Rock)
         {
             return _player1;
         }
