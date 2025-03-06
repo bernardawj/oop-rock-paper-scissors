@@ -5,9 +5,17 @@ namespace RockPaperScissors.Application.Processors.Players;
 
 public class ComputerPlayer : IPlayer
 {
+    private readonly Random _random;
+
+    public ComputerPlayer(Random? random = null)
+    {
+        _random = random ?? new Random();
+    }
+
     public Choice Play()
     {
-        return (Choice)RandomNumberGenerator.GetInt32(0, 3);
+        var numberOfChoices = Enum.GetValues(typeof(Choice)).Length;
+        return (Choice)_random.Next(0, numberOfChoices);
     }
 
     public override string ToString()
