@@ -9,6 +9,15 @@ public class GameManager : IGameManager
     private readonly IPlayer _player1;
     private readonly IPlayer _player2;
 
+    private static readonly IDictionary<Choice, ISet<Choice>> WinningHands = new Dictionary<Choice, ISet<Choice>>
+    {
+        { Choice.Rock, new HashSet<Choice> { Choice.Scissors, Choice.Lizard } },
+        { Choice.Paper, new HashSet<Choice> { Choice.Rock, Choice.Spock } },
+        { Choice.Scissors, new HashSet<Choice> { Choice.Paper, Choice.Lizard } },
+        { Choice.Lizard, new HashSet<Choice> { Choice.Spock, Choice.Paper } },
+        { Choice.Spock, new HashSet<Choice> { Choice.Scissors, Choice.Rock } }
+    };
+
     public GameManager(IPlayer player1, IPlayer player2)
     {
         _player1 = player1;
@@ -35,22 +44,6 @@ public class GameManager : IGameManager
             return null;
         }
 
-        if (player1Choice == Choice.Rock && player2Choice == Choice.Scissors ||
-            player1Choice == Choice.Rock && player2Choice == Choice.Lizard ||
-            player1Choice == Choice.Paper && player2Choice == Choice.Rock ||
-            player1Choice == Choice.Paper && player2Choice == Choice.Spock ||
-            player1Choice == Choice.Scissors && player2Choice == Choice.Paper ||
-            player1Choice == Choice.Scissors && player2Choice == Choice.Lizard ||
-            player1Choice == Choice.Lizard && player2Choice == Choice.Spock ||
-            player1Choice == Choice.Lizard && player2Choice == Choice.Paper ||
-            player1Choice == Choice.Spock && player2Choice == Choice.Scissors ||
-            player1Choice == Choice.Spock && player2Choice == Choice.Rock)
-        {
-            return _player1;
-        }
-        else
-        {
-            return _player2;
-        }
+        return WinningHands[player1Choice].Contains(player2Choice) ? _player1 : _player2;
     }
 }
